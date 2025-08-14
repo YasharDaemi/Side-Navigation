@@ -1,0 +1,258 @@
+@font-face {
+  font-family: "Tanha";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Tanha-FD.woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Tanha";
+  background: #a896fa;
+  background: radial-gradient(circle, rgba(148, 227, 233, 1) 20%, rgba(168, 150, 250, 1) 70%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+}
+
+.sidebar_nav {
+  position: relative;
+}
+
+.label_toggle_sidebar {
+  cursor: pointer;
+}
+
+.label_toggle_sidebar::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.418);
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 100;
+  left: -11px;
+  top: 13px;
+  backdrop-filter: blur(15px);
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -ms-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+
+.label_toggle_sidebar::after {
+  content: "";
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  width: 8px;
+  height: 8px;
+  display: block;
+  position: absolute;
+  z-index: 120;
+  left: -4px;
+  top: 21px;
+  transform: rotate(-43deg);
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -ms-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  -webkit-transform: rotate(-43deg);
+  -moz-transform: rotate(-43deg);
+  -ms-transform: rotate(-43deg);
+  -o-transform: rotate(-43deg);
+}
+
+.label_toggle_sidebar:hover::before {
+  background-color: #ffffff;
+}
+
+.label_toggle_sidebar:hover::after {
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+}
+
+.list_item_nav {
+  width: 5.7rem;
+  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  padding: 24px;
+  height: 534px;
+  box-shadow: 0px 0px 20px 14px rgba(188, 72, 255, 0.6);
+  border: 1px solid rgba(190, 115, 233, 0.6);
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -ms-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.list_item_nav li {
+  color: #fff;
+  display: flex;
+  margin-bottom: 22px;
+  height: 40px;
+  line-height: 40px;
+  align-items: center;
+  padding: 4px 5px;
+  flex-wrap: nowrap;
+  pointer-events: hidden;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: all 250ms ease-out;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -ms-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  position: relative;
+}
+
+.list_item_nav li:hover {
+  background-color: #fff;
+}
+
+.list_item_nav li:hover > i,
+.list_item_nav li:hover > a {
+  color: #000;
+}
+
+.list_item_nav li:hover span {
+  animation: notify 0.75s both;
+  -webkit-animation: notify 0.75s both;
+}
+
+.list_item_nav > li i {
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+}
+
+.list_item_nav li a {
+  color: #fff;
+  flex: 1;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: hidden;
+  display: none;
+  transition: all 200ms ease-out;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -ms-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+}
+
+.count_notify {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  position: fixed;
+  left: -12px;
+  background: radial-gradient(rgb(77, 109, 250) 20%, rgb(91, 64, 245) 70%);
+  width: 23px;
+  height: 23px;
+  line-height: 22px;
+  text-align: center;
+  cursor: none;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+#toggle_sidebar:checked + label + ul {
+  width: 12rem;
+}
+
+#toggle_sidebar:checked + label + ul li a {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
+  display: block;
+}
+
+#toggle_sidebar:checked + label::after {
+  left: -1px;
+  transform: rotate(131deg);
+  -webkit-transform: rotate(131deg);
+  -moz-transform: rotate(131deg);
+  -ms-transform: rotate(131deg);
+  -o-transform: rotate(131deg);
+}
+
+@keyframes notify {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    -moz-transform: scale3d(0.3, 0.3, 0.3);
+    -ms-transform: scale3d(0.3, 0.3, 0.3);
+    -o-transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    -moz-transform: scale3d(1.1, 1.1, 1.1);
+    -ms-transform: scale3d(1.1, 1.1, 1.1);
+    -o-transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -moz-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    -o-transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    -moz-transform: scale3d(1.03, 1.03, 1.03);
+    -ms-transform: scale3d(1.03, 1.03, 1.03);
+    -o-transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    -moz-transform: scale3d(0.97, 0.97, 0.97);
+    -ms-transform: scale3d(0.97, 0.97, 0.97);
+    -o-transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    -moz-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    -o-transform: scale3d(1, 1, 1);
+  }
+}
